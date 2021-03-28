@@ -26,7 +26,8 @@
 	        {% endfor %}
             
         <p> Cet article a été publié le : {{article.createdAt|date('d/m/Y à h:i')}} </p>
-
+    {% else %}
+        <p> Il n'y a pas encore d'article </p>
     {% endfor %}
     {# {{ knp_pagination_render(articles) }} pour pagination, réactiver plus tard#}
     </p>
