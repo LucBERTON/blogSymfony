@@ -1,0 +1,13 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        featured_images: #on peut l'appeler comme on veut
+            #On utilise le param-tre créé dans services.yaml.
+            uri_prefix:  '%app.path.featured_images%' 
+
+            #fonction de vich uploader pour nommer les fichiers de manière unique
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+            #permet de renseigner le dossier d'upload. %kernel.project_dir% fait référence à la racine du projet
+            upload_destination: '%kernel.project_dir%/public/%app.path.featured_images%'

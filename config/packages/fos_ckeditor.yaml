@@ -1,0 +1,14 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+
+# la partie récupère le fichier templare twig
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+
+
+# ensuite on a les configuration de ckeditor. 
+fos_ck_editor:
+    configs:
+        main_config: #"main config" est un nom choisi pour la config, on aurait pu mettre ce qu'on veut.
+            toolbar: #on indique un nom pour la barre d'outil et toutes les fonctionnalités qu'on veut 
+                - { name: "styles", items: ['Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Image', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor', 'BGColor', 'Source'] }

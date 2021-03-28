@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('message') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h3> <a href="/connexion"> Connexion </a> <h3>
+    <h3> <a href="/inscription"> Inscription nouvel utilisateur </a> <h3>
+    <h3> <a href="/article/nouveau"> Ecrire un nouvel article </a> <h3>
+
+
+
+    <h1> Articles récents </h1>
+
+    {% for article in articles %}
+        <h2> <a href="/article/{{ article.slug }}"> {{ article.titre }}</a> </h2>
+            Catégorie de l'article :
+            <!-- on peut boucler sur les catégorie parce que la classe Article a un getter getCategories() et les récupère -->
+            {% for categorie in article.categories %} 
+	             {{categorie.nom}}
+	        {% endfor %}
+            
+        <p> Cet article a été publié le : {{article.createdAt|date('d/m/Y à h:i')}} </p>
+
+    {% endfor %}
+    {# {{ knp_pagination_render(articles) }} pour pagination, réactiver plus tard#}
+
+
+{% endblock %}

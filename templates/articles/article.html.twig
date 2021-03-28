@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ article.titre }} {% endblock %}
+
+{% block body %}
+    <h1> {{ article.titre }} </h1>
+    <h6> Mots-Clés : 
+    {% for mot_cle in article.MotsCles %} 
+            {{mot_cle.motCle}}
+    {% endfor %}</h6>
+    <div> {{ article.contenu|raw}} </div>
+    <br> ----- <br>
+    Catégorie de l'article :
+    <!-- on peut boucler sur les catégorie parce que la classe Article a un getter getCategories() et les récupère -->
+    {% for categorie in article.categories %} 
+            {{categorie.nom}}
+    {% endfor %}
+
+    <p> Cet article a été publié le : {{article.createdAt|date('d/m/Y à h:i')}} </p>
+
+    <h2> Ajouter un commentaire </h2>
+    {{ form(commentForm) }}
+
+    <h2> Commentaires ({{ article.commentaires|length }})</h2> <!--|length renvoit la taille du champs commentaire (donc le nombre qu'il y en a) -->
+    {% for commentaire in article.commentaires %}
+        <div> Commentaire laissé par {{commentaire.pseudo}} le {{commentaire.createdAt|date('d/m/Y à h:i')}} : 
+         <p> {{ commentaire.contenu }}</p> </div>
+    {% else %}
+        <p> Il n'y a pas encore de commentaire </p>
+    {% endfor %}
+
+
+
+
+{% endblock %}
