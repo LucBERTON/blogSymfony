@@ -9,12 +9,12 @@
         </div>
     {% endfor %}
 
-    <h3> <a href="/connexion"> Connexion </a> <h3>
-    <h3> <a href="/inscription"> Inscription nouvel utilisateur </a> <h3>
-    <h3> <a href="/article/nouveau"> Ecrire un nouvel article </a> <h3>
+    <h6> <a href="/connexion"> Connexion </a> </h6>
+    <h6> <a href="/inscription"> Inscription nouvel utilisateur </a> </h6>
+    <h6> <a href="/article/nouveau"> Ecrire un nouvel article </a> </h6>
 
 
-
+    <p>
     <h1> Articles récents </h1>
 
     {% for article in articles %}
@@ -29,6 +29,6 @@
 
     {% endfor %}
     {# {{ knp_pagination_render(articles) }} pour pagination, réactiver plus tard#}
-
+    </p>
 
 {% endblock %}
